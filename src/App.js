@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import DataBar from './components/DataBar';
+
+function GenerateData(numDataPoints){
+  let arr = []
+
+  for(let i = 0; i < numDataPoints; i++){
+    arr.push(<DataBar/>)
+  }
+  return(
+    arr
+  );
+}
 
 function App() {
+
+  let arr = GenerateData(20);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div className="inner">
+        {arr}
+        <button onClick={GenerateData}>Generate Mothafuckin Data</button>
+      </div>
+      
     </div>
   );
 }
