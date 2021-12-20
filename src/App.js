@@ -1,28 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DataBar from './components/DataBar';
 
-function GenerateData(numDataPoints){
-  let arr = []
-
-  for(let i = 0; i < numDataPoints; i++){
-    arr.push(<DataBar/>)
-  }
-  return(
-    arr
-  );
-}
-
 function App() {
+  const [data, setData] = useState([]);
 
-  let arr = GenerateData(20);
+  function GenerateData(numDataPoints){
+    let arr = [];
+
+    for(let i = 0; i < numDataPoints; i++){
+      arr.push(<DataBar/>)
+    }
+    
+    setData(arr);
+  }
 
   return (
     <div className="container">
       <div className="inner">
-        {arr}
-        <button onClick={GenerateData}>Generate Mothafuckin Data</button>
+        {data}
+        <button onClick={() => {GenerateData(10)}}>Generate Mothafuckin Data</button>
       </div>
-      
     </div>
   );
 }
