@@ -18,7 +18,7 @@ function App() {
     <div className="container">
       <div className="inner">
         {data}
-        <button onClick={() => {GenerateData(10)}}>Generate Mothafuckin Data</button>
+        <button onClick={() => GenerateData(10)}>Generate Mothafuckin Data</button>
       </div>
     </div>
   );
